@@ -15,7 +15,7 @@
         "illuminate/support": "5.*",
         "illuminate/console": "5.*",
         "illuminate/config": "5.*",
-        "tangervu/connection": "dev-master"
+        "banago/bridge": "1.*"
     },
     "autoload": {
         "psr-0": {

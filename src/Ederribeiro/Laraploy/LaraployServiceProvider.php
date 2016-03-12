@@ -6,6 +6,9 @@ use Illuminate\Support\ServiceProvider;
 
 class LaraployServiceProvider extends ServiceProvider
 {
+    protected $commands = [
+        Commands\DeployCommand::class
+    ];
     /**
      * Bootstrap the application services.
      *
@@ -23,6 +26,6 @@ class LaraployServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->commands($this->commands);
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Ederribeiro\Laraploy;
 
+use Illuminate\Console\Command;
+use Ederribeiro\Laraploy\Connection;
 class Laraploy
 {
     protected $server;
@@ -13,6 +15,11 @@ class Laraploy
 
     public function start()
     {
-        //
+        $conn = new Connection();
+        $ignition = $conn->ignition();
+
+        $command = new Command();
+
+        $command->info($ignition->ls());
     }
 }

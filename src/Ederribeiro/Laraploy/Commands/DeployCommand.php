@@ -13,7 +13,7 @@ class DeployCommand extends Command
      * @var string
      */
     protected $signature = 'laraploy:send
-                            {server? : Choose the server you will use to send the deploy, default is development}';
+                            {server=development : Choose the server you will use to send the deploy, default is development}';
 
     /**
      * The console command description.
@@ -40,7 +40,9 @@ class DeployCommand extends Command
     public function handle()
     {
         $server   = $this->argument('server');
-        
+
+        $this->info('Server: '.$server);
+
         $laraploy = new Laraploy($server);
         $laraploy->start();
     }
