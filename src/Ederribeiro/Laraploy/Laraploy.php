@@ -17,9 +17,5 @@ class Laraploy
     {
         $conn = new Connection();
         $ignition = $conn->ignition();
-
-        $command = new Command();
-
-        $command->info($ignition->ls());
     }
 }
