@@ -1,0 +1,25 @@
+{
+    "name": "ederribeiro/laraploy",
+    "description": "",
+    "license": "MIT",
+    "keywords": ["laravel", "deployment", "git", "ftp", "ssh"],
+    "authors": [
+        {
+            "name": "Eder Ribeiro",
+            "email": "eder@ederibeiro.com",
+            "homepage": "http://ederibeiro.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*",
+        "illuminate/console": "4.2.*",
+        "illuminate/config": "4.2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ederribeiro\\Laraploy": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
