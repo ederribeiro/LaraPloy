@@ -2,7 +2,7 @@
 
 namespace Ederribeiro\Laraploy;
 
-use Banago\Bridge\Bridge;
+use phpseclib\Net\SSH2;
 
 class Connection
 {
@@ -12,22 +12,30 @@ class Connection
 
     public function __construct()
     {
-        $this->scheme = app()->config['LARAPLOY_SCHEME'];
-        $this->host   = app()->config['LARAPLOY_HOST'];
-        $this->user   = app()->config['LARAPLOY_USER'];
+        $this->scheme = env('LARAPLOY_SCHEME');
+        $this->host   = env('LARAPLOY_HOST');
+        $this->user   = env('LARAPLOY_USER');
     }
 
     public function ignition()
     {
         $url  = $this->buildUrl();
-        $conn = new Bridge($url);
+        // echo $url;die;
+        $conn = new Net_SSH2($this->host);
+        $key = new Crypt_RSA();
+        $key->loadKey(file_get_contents('/Users/ederribeiro/Documents/keys/ConveniaKEY.pem'));
+        if (!$conn->login($this->user, $key)) {
+            exit('Login Failed');
+        }
 
+        echo $conn->exec('pwd');
+        echo $conn->exec('ls -la');
         return $conn;
     }
 
     private function buildUrl()
     {
-        $url = $this->scheme.'://'.$this->user.'@'.$this->host;
+        $url = $this->scheme.'://'.$this->host;
 
         return $url;
     }

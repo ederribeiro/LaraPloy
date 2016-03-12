@@ -15,7 +15,7 @@
         "illuminate/support": "5.*",
         "illuminate/console": "5.*",
         "illuminate/config": "5.*",
-        "banago/bridge": "1.*"
+        "phpseclib/phpseclib": "2.*"
     },
     "autoload": {
         "psr-0": {
